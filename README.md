@@ -1,0 +1,4 @@
+#설치npm파일 <br />
+npm install -g typescript <br />
+npm install styled-components <br />
+npm install react-router-dom <br />
