@@ -57,13 +57,13 @@ const Home: React.FC = () => {
         <HeroContent>
           <SubTitle>{kr.home.subTitle}</SubTitle>
           <HeroTitle>
-            {kr.home.heroTitle.split('\n').map((line, i) => (
-              <span key={i}>{line}<br/></span>
-            ))}
+            <div>
+              공간의 가치를 더하는 <HighlightText> 정밀 난방 솔루션</HighlightText>
+            </div>
           </HeroTitle>
           
           <DescriptionContainer>
-            <HighlightText>{kr.home.highlightText}</HighlightText>
+            <SubhighlightText>{kr.home.subhighlightText}</SubhighlightText>
             <DetailText>
               {kr.home.detailText.split('\n').map((line, i) => (
                 <span key={i}>{line}<br/></span>
@@ -161,14 +161,17 @@ const Home: React.FC = () => {
 export default Home;
 
 const HomeWrapper = styled.div`
-  padding-top: 70px;
-  background-color: #ffffff;
+  padding-top: 30px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeroSection = styled.section`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 180px;
+  padding: 100px 180px 50px 180px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,11 +202,17 @@ const HeroTitle = styled.h1`
   @media (max-width: 768px) { font-size: 38px; }
 `;
 
+const HighlightText = styled.span`
+  color: #3171c6 !important;
+  font-weight: 900;
+  display: inline-block;
+`;
+
 const DescriptionContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-const HighlightText = styled.p`
+const SubhighlightText = styled.p`
   font-size: 17px;
   font-weight: 700;
   color: #2d2d2d;
@@ -250,11 +259,12 @@ const HeroImage = styled.img`
 
 const FeatureSection = styled.section`
   max-width: 1280px;
-  margin: 80px auto;
-  padding: 90px 20px;
-  background: #f8f9fa;
+  margin: 20px auto;
+  padding: 50px 30px;
+  background: #ffffff;
   border-radius: 40px;
   display: flex;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   flex-direction: column;
   align-items: center;
 `;
@@ -271,20 +281,16 @@ const FeatureGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
 
 const FeatureCard = styled.div`
   padding: 45px 30px;
-  background: white;
+  background: #f8f9fa;
   border-radius: 24px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
   transition: all 0.3s ease;
-  &:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.06); }
-  h3 { margin: 25px 0 12px; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
-  p { color: #666; line-height: 1.6; font-size: 15px; }
 `;
 
 const IconBox = styled.div` font-size: 42px; `;
