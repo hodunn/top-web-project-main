@@ -131,13 +131,13 @@ const Subtitle = styled.p`
 const GridSection = styled.div`
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1050px) {
+    grid-template-columns: repeat(3, 1fr);
   }
-  @media (max-width: 650px) {
+  @media (max-width: 1100px) {
     grid-template-columns: 1fr;
     margin-top: 30px;
   }
@@ -145,7 +145,7 @@ const GridSection = styled.div`
 
 const WorkCard = styled.div`
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -159,7 +159,7 @@ const WorkCard = styled.div`
 `;
 
 const CardTitleBox = styled.div`
-  padding: 20px 20px 17px 20px;
+  padding: 25px 30px 17px 30px;
   background-color: #ffffff;
 `;
 
@@ -172,20 +172,31 @@ const CardTitle = styled.h3`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  height: 220px;
+  height: 300px;
   overflow: hidden;
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
+
+  /* 양옆 20px 여백 추가 */
+  padding: 0 25px; 
+  box-sizing: border-box; /* 패딩이 전체 너비에 포함되도록 설정 */
+  background-color: #ffffff; /* 여백 부분의 색상 (필요 시 변경) */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const WorkImage = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* 이미지가 꽉 차지 않고 여백 안에서 비율에 맞게 꽉 차도록 설정 */
+  object-fit: cover; 
+  border-radius: 1px; /* 이미지 모서리를 살짝 굴리면 더 깔끔합니다 (선택 사항) */
 `;
 
 const CardContent = styled.div`
-  padding: 17px 20px 22px 20px;
+  padding: 17px 25px 25px 25px;
 `;
 
 const CardDescription = styled.p`
