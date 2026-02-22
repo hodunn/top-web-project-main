@@ -73,7 +73,7 @@ const MainContainer = styled.main`
   width: 100%;
   max-width: 1200px; 
   margin: 0 auto;
-  padding: 120px 40px 100px 40px; 
+  padding: 150px 40px 100px 40px; 
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -97,7 +97,6 @@ const IntroTitle = styled.h2`
   gap: 15px;
 `;
 
-// "탑" 글자 전용 스타일 컴포넌트 생성 (우선순위 문제 해결)
 const HighlightText = styled.span`
   color: #3171c6 !important;
   font-weight: 900;
@@ -158,10 +157,13 @@ const ImageCard = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
-  transition: transform 0.3s ease;
-
+  
+  /* 효과 완전 제거: 마우스를 올려도 아무 변화가 없도록 설정 */
+  cursor: default;
+  
   &:hover {
-    transform: translateY(-10px);
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 기본 상태와 동일하게 유지 */
   }
 `;
 

@@ -6,13 +6,56 @@ import kr from "../../language/Kr-kr.json";
 
 const Work: React.FC = () => {
   const workItems = [
-    { id: 1, title: kr.work.item1.title, image: "/assets/work_image/work1.jpg", description: kr.work.item1.desc },
-    { id: 2, title: kr.work.item2.title, image: "/assets/work_image/work2.jpg", description: kr.work.item2.desc },
-    { id: 3, title: kr.work.item3.title, image: "/assets/work_image/work3.jpg", description: kr.work.item3.desc },
-    { id: 4, title: kr.work.item4.title, image: "/assets/work_image/work4.jpg", description: kr.work.item4.desc },
-    { id: 5, title: kr.work.item5.title, image: "/assets/work_image/work5.jpg", description: kr.work.item5.desc },
-    { id: 6, title: kr.work.item6.title, image: "/assets/work_image/work6.jpg", description: kr.work.item6.desc }
+    { 
+      id: 1, 
+      title: kr.work.item1.title, 
+      image: "/assets/work_image/work1.jpg", 
+      description: kr.work.item1.desc,
+      link: "https://blog.naver.com/rlaskgus04/224135262112" 
+    },
+    { 
+      id: 2, 
+      title: kr.work.item2.title, 
+      image: "/assets/work_image/work2.jpg", 
+      description: kr.work.item2.desc, 
+      link: "https://blog.naver.com/rlaskgus04/223942904938" 
+    },
+    { 
+      id: 3, 
+      title: kr.work.item3.title, 
+      image: "/assets/work_image/work3.jpg", 
+      description: kr.work.item3.desc, 
+      link: "https://blog.naver.com/rlaskgus04/221587297558" 
+    },
+    { 
+      id: 4, 
+      title: kr.work.item4.title, 
+      image: "/assets/work_image/work4.jpg", 
+      description: kr.work.item4.desc, 
+      link: "https://blog.naver.com/rlaskgus04/221753752665" 
+    },
+    { 
+      id: 5, 
+      title: kr.work.item5.title, 
+      image: "/assets/work_image/work5.jpg", 
+      description: kr.work.item5.desc, 
+      link: "https://blog.naver.com/rlaskgus04/224177587321" 
+    },
+    { 
+      id: 6, 
+      title: kr.work.item6.title, 
+      image: "/assets/work_image/work6.jpg", 
+      description: kr.work.item6.desc, 
+      link: "https://blog.naver.com/rlaskgus04/224014459323" 
+    }
   ];
+
+  // 클릭 이벤트 핸들러: 링크가 있을 경우 새 창으로 연결
+  const handleCardClick = (url: string) => {
+    if (url && url !== "#") {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <PageWrapper>
@@ -25,18 +68,15 @@ const Work: React.FC = () => {
 
         <GridSection>
           {workItems.map((item) => (
-            <WorkCard key={item.id}>
-              {/* 1. 제목 영역을 맨 위로 배치 */}
+            <WorkCard key={item.id} onClick={() => handleCardClick(item.link)}>
               <CardTitleBox>
                 <CardTitle>{item.title}</CardTitle>
               </CardTitleBox>
               
-              {/* 2. 이미지 영역을 제목 아래로 배치 */}
               <ImageWrapper>
                 <WorkImage src={item.image} alt={item.title} />
               </ImageWrapper>
               
-              {/* 3. 설명 영역 배치 */}
               <CardContent>
                 <CardDescription>{item.description}</CardDescription>
               </CardContent>
@@ -51,10 +91,9 @@ const Work: React.FC = () => {
 
 export default Work;
 
-/* --- 스타일 정의 (순서 변경에 맞춰 일부 조정) --- */
+/* --- 스타일 정의 --- */
 
 const PageWrapper = styled.div`
-  background-color: #f8f9fa;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -81,7 +120,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
   font-size: 16px;
-  color: #666;
+  color: #3171c6;
   line-height: 1.5;
   margin: 0;
   text-align: justify;
@@ -111,20 +150,21 @@ const WorkCard = styled.div`
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid #eee;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 30px #bcd2e7;
   }
 `;
 
 const CardTitleBox = styled.div`
-  padding: 20px 20px 17px 20px; /* 제목 상단 여백을 조금 더 주어 안정감 있게 변경 */
+  padding: 20px 20px 17px 20px;
   background-color: #ffffff;
 `;
 
 const CardTitle = styled.h3`
-  font-size: 17px; /* 제목 가독성을 위해 살짝 키움 */
+  font-size: 17px;
   font-weight: 700;
   color: #1a1c1e;
   margin: 0;
@@ -134,8 +174,8 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 220px;
   overflow: hidden;
-  border-top: 1px solid #f5f5f5; /* 제목과 이미지 사이 미세한 구분선 */
-  border-bottom: 1px solid #f5f5f5; /* 이미지와 설명 사이 미세한 구분선 */
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
 `;
 
 const WorkImage = styled.img`
