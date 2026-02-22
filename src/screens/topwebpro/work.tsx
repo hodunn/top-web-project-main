@@ -94,7 +94,7 @@ export default Work;
 /* --- 스타일 정의 --- */
 
 const PageWrapper = styled.div`
-  width: 100%;
+  background-color: #f8f9fa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -102,8 +102,11 @@ const PageWrapper = styled.div`
 
 const MainContainer = styled.div`
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 120px 20px 80px 20px;
+  padding: 150px 50px 100px 50px;
+  box-sizing: border-box;
+  flex: 1;
 `;
 
 const HeaderSection = styled.div`
@@ -112,7 +115,7 @@ const HeaderSection = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 800;
   color: #1a1c1e;
   margin-bottom: 12px;
@@ -121,11 +124,7 @@ const Title = styled.h1`
 const Subtitle = styled.p`
   font-size: 16px;
   color: #3171c6;
-  line-height: 1.5;
-  margin: 0;
-  text-align: justify;
-  word-break: break-all;
-  letter-spacing: -0.02em;
+  margin-bottom: 30px;
 `;
 
 const GridSection = styled.div`
@@ -201,7 +200,7 @@ const CardContent = styled.div`
 
 const CardDescription = styled.p`
   font-size: 14px;
-  color: #4b5563;
+  color: #1a1c1e;
   line-height: 1.6;
   margin: 0;
   text-align: justify;

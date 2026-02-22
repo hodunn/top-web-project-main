@@ -74,7 +74,7 @@ const Topmenu: React.FC = () => {
                 onMouseLeave={() => setHoveredItem(getActiveItem())}
                 onClick={() => handleMenuClick("/Contact", "contact")}
               >
-                고객문의
+                {kr.menukr.contactkr}
               </NavItem>
               <NavItem
                 isActive={hoveredItem === "products"}
@@ -105,7 +105,7 @@ const Topmenu: React.FC = () => {
         <MobileMenu>
           <MobileNavItem onClick={() => handleMenuClick("/About", "about")}>{kr.menukr.aboutkr}</MobileNavItem>
           <MobileNavItem onClick={() => handleMenuClick("/Work", "work")}>{kr.menukr.workkr}</MobileNavItem>
-          <MobileNavItem onClick={() => handleMenuClick("/Contact", "contact")}>고객문의</MobileNavItem>
+          <MobileNavItem onClick={() => handleMenuClick("/Contact", "contact")}>{kr.menukr.contactkr}</MobileNavItem>
           <MobileNavItem onClick={() => handleMenuClick("/ProductList", "products")}>{kr.menukr.productList}</MobileNavItem>
         </MobileMenu>
       )}

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Home from "./screens/topwebpro/Home";
 import About from "./screens/topwebpro/About";
 import Work from "./screens/topwebpro/work"; // 1. work 파일 임포트 추가 20일에 넣었음
+import Contact from "./screens/topwebpro/contact"; //내가 직접 넣은거 왜 적용안되냐
 import AddProduct from "./screens/topwebpro/menu/AddProduct";
 import ProductList from "./screens/topwebpro/menu/ProductList";
 import ProductAdminList from "./screens/topwebpro/menu/ProductAdminList";
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/work" element={<Work />} /> 
+            <Route path="/contact" element={<Contact />} /> 
             <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/productlist" element={<ProductList />} />
             <Route path="/productAdminlist" element={<ProductAdminList />} />

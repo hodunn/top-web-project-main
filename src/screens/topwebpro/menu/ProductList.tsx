@@ -161,14 +161,13 @@ const PageWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
 `;
 
 const ContentContainer = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 150px 50px 100px 50px;
   box-sizing: border-box;
   flex: 1;
 `;
@@ -179,7 +178,7 @@ const HeaderSection = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 800;
   color: #1a1a1a;
   margin-bottom: 12px;

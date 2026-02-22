@@ -77,7 +77,7 @@ const Home: React.FC = () => {
 
         <HeroImageWrapper>
           <HeroImage 
-            src={process.env.PUBLIC_URL + "/assets/home_image/qa.jpg"} 
+            src={process.env.PUBLIC_URL + "/assets/home_image/mainimage.jpg"} 
             alt="난방 수리 작업 현장" 
           />
         </HeroImageWrapper>
@@ -91,17 +91,17 @@ const Home: React.FC = () => {
 
         <FeatureGrid>
           <FeatureCard>
-            <IconBox>🛠️</IconBox>
+            <IconBox>🗑️</IconBox>
             <h3>{kr.home.feature1Title}</h3>
             <p>{kr.home.feature1Desc}</p>
           </FeatureCard>
           <FeatureCard>
-            <IconBox>🚚</IconBox>
+            <IconBox>⚙️</IconBox>
             <h3>{kr.home.feature2Title}</h3>
             <p>{kr.home.feature2Desc}</p>
           </FeatureCard>
           <FeatureCard>
-            <IconBox>🛡️</IconBox>
+            <IconBox>🛠️</IconBox>
             <h3>{kr.home.feature3Title}</h3>
             <p>{kr.home.feature3Desc}</p>
           </FeatureCard>
@@ -166,9 +166,9 @@ const HomeWrapper = styled.div`
 `;
 
 const HeroSection = styled.section`
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 20px;
+  padding: 100px 180px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -182,7 +182,7 @@ const HeroContent = styled.div`
 
 const SubTitle = styled.p`
   font-size: 15px;
-  color: #777;
+  color: #2d2d2d;
   margin-bottom: 15px;
   font-weight: 600;
   letter-spacing: -0.5px;
@@ -193,7 +193,7 @@ const HeroTitle = styled.h1`
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 35px;
-  color: #000;
+  color: #2d2d2d;
   letter-spacing: -2px;
   word-break: keep-all;
   @media (max-width: 768px) { font-size: 38px; }
@@ -206,14 +206,14 @@ const DescriptionContainer = styled.div`
 const HighlightText = styled.p`
   font-size: 17px;
   font-weight: 700;
-  color: #222;
+  color: #2d2d2d;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
 `;
 
 const DetailText = styled.p`
   font-size: 15px;
-  color: #555;
+  color: #2d2d2d;
   line-height: 1.7;
   margin-bottom: 12px;
   word-break: keep-all;
@@ -229,13 +229,13 @@ const ClosingText = styled.p`
 const PhoneNumber = styled.div`
   font-size: 44px;
   font-weight: 900;
-  color: #000;
+  color: #34292a;
   letter-spacing: -1.5px;
   @media (max-width: 768px) { font-size: 32px; }
 `;
 
 const HeroImageWrapper = styled.div`
-  flex: 0.8;
+  flex: 2.0;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -243,10 +243,9 @@ const HeroImageWrapper = styled.div`
 
 const HeroImage = styled.img`
   width: 100%;
-  max-width: 580px;
-  border-radius: 16px;
+  max-width: 600px;
+  border-radius: 5px;
   object-fit: cover;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 `;
 
 const FeatureSection = styled.section`
