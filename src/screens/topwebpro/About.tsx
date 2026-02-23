@@ -2,14 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Topmenu from "./menu/TopMenu";
 import Bottommenu from "./menu/BottomMenu"; 
-import kr from "../../language/Kr-kr.json"; // 언어 파일 불러오기
+import kr from "../../language/Kr-kr.json";
 
 const About: React.FC = () => {
-  // 상단 4개의 이미지 카드 데이터
+  // clean(id: 3)을 제외한 3개의 데이터
   const imageCards = [
     { id: 1, src: process.env.PUBLIC_URL + "/assets/about_image/diag.jpg", title: kr.about.card1 },
     { id: 2, src: process.env.PUBLIC_URL + "/assets/about_image/work.jpg", title: kr.about.card2 },
-    { id: 3, src: process.env.PUBLIC_URL + "/assets/about_image/clean.jpg", title: kr.about.card3 },
     { id: 4, src: process.env.PUBLIC_URL + "/assets/about_image/care.jpg", title: kr.about.card4 },
   ];
 
@@ -18,7 +17,6 @@ const About: React.FC = () => {
       <Topmenu />
       
       <MainContainer>
-        {/* 1. 회사 소개 텍스트 섹션 */}
         <IntroSection>
           <IntroTitle>
             <div>
@@ -26,29 +24,23 @@ const About: React.FC = () => {
             </div>
             <IntroSubHeader>난방설비 엔지니어링</IntroSubHeader>
           </IntroTitle>
-          <IntroText>
-            {kr.about.introMain}
-          </IntroText>
-          <SubIntroText>
-            {kr.about.introSub}
-          </SubIntroText>
+          <IntroText>{kr.about.introMain}</IntroText>
+          <SubIntroText>{kr.about.introSub}</SubIntroText>
         </IntroSection>
 
-        {/* 2. 이미지 그리드 섹션 */}
-        <ImageGridSection>
-          {imageCards.map((card) => (
-            <ImageCard key={card.id}>
-              {card.src ? (
+        {/* 카드 섹션 */}
+        <ImageGridContainer>
+          <ImageGridSection>
+            {imageCards.map((card) => (
+              <ImageCard key={card.id}>
                 <CardImage src={card.src} alt={card.title} />
-              ) : (
-                <ImagePlaceholder>{card.title}</ImagePlaceholder>
-              )}
-              <CardOverlay>
-                <CardTitle>{card.title}</CardTitle>
-              </CardOverlay>
-            </ImageCard>
-          ))}
-        </ImageGridSection>
+                <CardOverlay>
+                  <CardTitle>{card.title}</CardTitle>
+                </CardOverlay>
+              </ImageCard>
+            ))}
+          </ImageGridSection>
+        </ImageGridContainer>
       </MainContainer>
 
       <Bottommenu />
@@ -62,109 +54,96 @@ export default About;
 
 const PageWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
-  background-color: #fdfefe;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
 `;
 
-const MainContainer = styled.main`
-  flex: 1;
+const MainContainer = styled.div`
   width: 100%;
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 150px 40px 100px 40px; 
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
+  padding: 120px 20px 80px 20px;
 `;
 
 const IntroSection = styled.section`
+  text-align: center;
+  margin-bottom: 60px;
+`;
+
+const IntroTitle = styled.h2`
+  font-size: 36px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 30px;
+  line-height: 1.4;
+`;
+
+const HighlightText = styled.span` color: #3171c6; `;
+const IntroSubHeader = styled.div`
+  font-size: 14px;
+  color: #3171c6;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 10px;
+`;
+
+const IntroText = styled.p`
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+`;
+
+const SubIntroText = styled.p`
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 `;
 
-const IntroTitle = styled.h2`
-  font-size: 48px;
-  font-weight: 850;
-  color: #2d2d2d;
-  margin-bottom: 30px;
+/* 카드 크기 조절을 위한 컨테이너 추가 */
+const ImageGridContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-`;
-
-const HighlightText = styled.span`
-  color: #3171c6 !important;
-  font-weight: 900;
-  display: inline-block;
-`;
-
-const IntroSubHeader = styled.span`
-  font-size: 18px;
-  font-weight: 600;
-  color: #666;
-  margin-top: 5px;
-  margin-bottom: 30px;
-`;
-
-const IntroText = styled.p`
-  font-size: 16px;
-  line-height: 1.8;
-  color: #333;
-  word-break: keep-all;
-  margin-bottom: 30px;
-  font-weight: 500;
-  text-align: justify;
-  text-justify: inter-character;
-  text-align-last: center;
-`;
-
-const SubIntroText = styled.p`
-  font-size: 16px;
-  line-height: 1.8;
-  color: #555;
-  word-break: keep-all;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: justify;
-  text-justify: inter-character;
-  text-align-last: center;
+  justify-content: center; /* 중앙 정렬 */
+  width: 100%;
 `;
 
 const ImageGridSection = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  /* 전체 너비를 약 80%(4/5) 수준으로 제한하여 카드가 너무 커지지 않게 조절 */
   width: 100%;
+  max-width: 960px; 
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
   }
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    max-width: 320px;
   }
 `;
 
 const ImageCard = styled.div`
   position: relative;
-  aspect-ratio: 3 / 4;
+  /* 비율을 유지하면서 컨테이너 너비에 맞춰 크기 결정 */
+  aspect-ratio: 4 / 5; 
   background-color: #f8f9fa;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
-  
-  /* 효과 완전 제거: 마우스를 올려도 아무 변화가 없도록 설정 */
   cursor: default;
-  
-  &:hover {
-    transform: none;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 기본 상태와 동일하게 유지 */
-  }
 `;
 
 const CardImage = styled.img`
@@ -178,26 +157,16 @@ const CardOverlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
-  background: linear-gradient(transparent, #f4f3f1);
+  height: 50%;
+  background: linear-gradient(to top, #ffffff 0%, transparent 100%);
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  padding: 20px;
 `;
 
-const CardTitle = styled.span`
+const CardTitle = styled.h3`
   color: #2d2d2d;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
-`;
-
-const ImagePlaceholder = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #adb5bd;
-  font-weight: 600;
-  background: #f1f3f5;
+  margin: 0;
 `;

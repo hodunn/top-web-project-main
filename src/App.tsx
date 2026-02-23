@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+// 1. 아래 import 문이 누락되어 에러가 발생한 것입니다. 반드시 추가해주세요!
+import ScrollToTop from "./components/ScrollToTop"; 
+
 import Home from "./screens/topwebpro/Home";
 import About from "./screens/topwebpro/About";
-import Work from "./screens/topwebpro/work"; // 1. work 파일 임포트 추가 20일에 넣었음
-import Contact from "./screens/topwebpro/contact"; //내가 직접 넣은거 왜 적용안되냐
+import Work from "./screens/topwebpro/work"; 
 import AddProduct from "./screens/topwebpro/menu/AddProduct";
 import ProductList from "./screens/topwebpro/menu/ProductList";
 import ProductAdminList from "./screens/topwebpro/menu/ProductAdminList";
@@ -23,15 +25,16 @@ function App() {
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Router>
+        {/* 이제 ScrollToTop을 정상적으로 인식합니다 */}
+        <ScrollToTop /> 
         <HashShim />
         <div style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/work" element={<Work />} /> 
-            <Route path="/contact" element={<Contact />} /> 
-            <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/productlist" element={<ProductList />} />
+            <Route path="/addproduct" element={<AddProduct />} />
             <Route path="/productAdminlist" element={<ProductAdminList />} />
           </Routes>
         </div>

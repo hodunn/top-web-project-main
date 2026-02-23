@@ -161,7 +161,7 @@ const Home: React.FC = () => {
 export default Home;
 
 const HomeWrapper = styled.div`
-  padding-top: 30px;
+  padding-top: 60px;
   background-color: #f8f9fa;
   
 `;

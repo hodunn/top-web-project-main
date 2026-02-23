@@ -16,7 +16,6 @@ const Topmenu: React.FC = () => {
     const path = location.pathname.toLowerCase();
     if (path.includes("/about")) return "about";
     if (path.includes("/work")) return "work";
-    if (path.includes("/contact")) return "contact";
     if (path.includes("/productlist") || path.includes("/products")) return "products";
     return null;
   };
@@ -30,9 +29,8 @@ const Topmenu: React.FC = () => {
   }, []);
 
   useEffect(() => {
-  setHoveredItem(getActiveItem());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [location.pathname]);
+    setHoveredItem(getActiveItem());
+  }, [location.pathname]);
 
   const handleMenuClick = (path: string, item: string) => {
     navigate(path);
@@ -69,14 +67,6 @@ const Topmenu: React.FC = () => {
                 {kr.menukr.workkr}
               </NavItem>
               <NavItem
-                isActive={hoveredItem === "contact"}
-                onMouseEnter={() => setHoveredItem("contact")}
-                onMouseLeave={() => setHoveredItem(getActiveItem())}
-                onClick={() => handleMenuClick("/Contact", "contact")}
-              >
-                {kr.menukr.contactkr}
-              </NavItem>
-              <NavItem
                 isActive={hoveredItem === "products"}
                 onMouseEnter={() => setHoveredItem("products")}
                 onMouseLeave={() => setHoveredItem(getActiveItem())}
@@ -105,7 +95,6 @@ const Topmenu: React.FC = () => {
         <MobileMenu>
           <MobileNavItem onClick={() => handleMenuClick("/About", "about")}>{kr.menukr.aboutkr}</MobileNavItem>
           <MobileNavItem onClick={() => handleMenuClick("/Work", "work")}>{kr.menukr.workkr}</MobileNavItem>
-          <MobileNavItem onClick={() => handleMenuClick("/Contact", "contact")}>{kr.menukr.contactkr}</MobileNavItem>
           <MobileNavItem onClick={() => handleMenuClick("/ProductList", "products")}>{kr.menukr.productList}</MobileNavItem>
         </MobileMenu>
       )}
@@ -115,6 +104,8 @@ const Topmenu: React.FC = () => {
 
 export default Topmenu;
 
+/* --- 스타일 정의 --- */
+
 const NavBarContainer = styled.header<{ isScrolled: boolean }>`
   position: fixed;
   top: 0;
@@ -122,7 +113,7 @@ const NavBarContainer = styled.header<{ isScrolled: boolean }>`
   width: 100%;
   height: 80px;
   background: #ffffff;
-  border-bottom: ${props => props.isScrolled ? "1px solid #eaeaea" : "none"};
+  border-bottom: 1px solid #eaeaea; 
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -167,7 +158,7 @@ const MenuBackground = styled.div`
   background-color: #333d42;
   border-radius: 50px;
   padding: 4px; 
-  min-width: 400px;
+  min-width: 300px; /* 3개 항목에 맞춰 너비 조정 */
   align-items: center;
 `;
 
@@ -190,7 +181,8 @@ const HoverHighlight = styled.div<{ hoveredItem: string | null }>`
   position: absolute;
   top: 4px;
   left: 4px;
-  width: calc(25% - 2px); 
+  /* 3개 메뉴이므로 전체 너비에서 여백을 고려한 정확한 1/3 너비 설정 */
+  width: calc((100% - 8px) / 3); 
   height: calc(100% - 8px);
   background-color: #ffffff;
   border-radius: 40px;
@@ -198,12 +190,14 @@ const HoverHighlight = styled.div<{ hoveredItem: string | null }>`
   opacity: ${(props) => (props.hoveredItem ? 1 : 0)};
   z-index: 1;
 
+  /* translateX 값을 100%, 200%로 설정하면 
+    해당 요소의 너비만큼 정확히 한 칸, 두 칸 이동합니다.
+  */
   transform: ${(props) => {
     switch (props.hoveredItem) {
       case "about": return "translateX(0%)";
       case "work": return "translateX(100%)";
-      case "contact": return "translateX(200%)";
-      case "products": return "translateX(300%)";
+      case "products": return "translateX(200%)";
       default: return "translateX(0%)";
     }
   }};
