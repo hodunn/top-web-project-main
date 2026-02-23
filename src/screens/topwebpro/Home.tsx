@@ -163,9 +163,7 @@ export default Home;
 const HomeWrapper = styled.div`
   padding-top: 30px;
   background-color: #f8f9fa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  
 `;
 
 const HeroSection = styled.section`
@@ -388,7 +386,8 @@ const ProductPrice = styled.p` font-size: 18px; font-weight: 900; color: #000; `
 const EmptyContainer = styled.div`
   width: 100%;
   padding: 60px 0;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
   display: flex;
   justify-content: center;
