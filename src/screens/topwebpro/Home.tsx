@@ -182,9 +182,9 @@ const HeroContent = styled.div`
 `;
 
 const SubTitle = styled.p`
-  font-size: 15px;
+  font-size: 18px;
   color: #2d2d2d;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-weight: 600;
   letter-spacing: -0.5px;
 `;
