@@ -2,10 +2,9 @@
   "menukr": {
     "homekr": "홈",
     "aboutkr": "회사소개",
-    "workkr": "시공품목",
-    "productList": "판매제품",
-    "requestQuote": "견적 요청",
-    "proLogin": "전문가 로그인",
+    "workkr": "작업소개",
+    "productList": "제품판매",
+    "qna": "Q&A",
     "searchPlaceholder": "제품 검색..."
   },
   "footer": {
@@ -22,6 +21,8 @@
     "copyright": "© 2024 Professional Heating Solutions Ltd. All rights reserved."
   },
   "home": {
+    "heroMainText": "고객님의 따뜻한 하루를 위한\n전문 난방솔루션",
+    "heroSubText": "탑난방(주)입니다",
     "subTitle": "주식회사 탑",
     "heroTitle": "공간의 가치를 더하는\n정밀 난방 솔루션",
     "subhighlightText": "지역난방의 모든 문제를 해결해주는 난방수리 업체",
